@@ -1,0 +1,69 @@
+$section-height: 387px;
+
+.ingredients {
+  position: relative;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 550px;
+
+    @include onTablet {
+      grid-column: 1 / span 3;
+      height: 410px;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / span 4;
+      height: $section-height;
+    }
+  }
+
+  &__powder {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 20px;
+
+    @include onTablet {
+      top: auto;
+      bottom: 0;
+      transform: translateY(0%);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding-block: 40px;
+  }
+
+  &__item {
+    align-self: flex-end;
+  }
+
+  &__image {
+    height: $section-height;
+    width: 182px;
+    background-image: url("../../img/jar-mobile.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @include onTablet {
+      background-image: url("../../img/jar-tablet.svg");
+      width: 398px;
+    }
+
+    @include onDesktop {
+      background-image: url("../../img/jar-desktop.svg");
+      width: 480px;
+    }
+  }
+}

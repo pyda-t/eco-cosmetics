@@ -1,0 +1,46 @@
+.product-card {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 150%;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+
+  &__image {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    aspect-ratio: 320 / 267;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+    transition-duration: $amin-time;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    @include onTablet {
+      aspect-ratio: 342 / 300;
+    }
+
+    @include onDesktop {
+      aspect-ratio: 530 / 500;
+    }
+  }
+
+  &__title {
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 15px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 13px;
+    }
+  }
+
+  &__price {
+    font-weight: 500;
+  }
+}

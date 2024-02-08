@@ -1,0 +1,90 @@
+.footer {
+  padding-block: 30px;
+  background-color: $lightGreen;
+  color: $cream;
+
+  @include onDesktop {
+    padding-block: 60px;
+  }
+
+  &__content {
+    @include pageGrid;
+    grid-template-areas:
+        "nav"
+        "socials"
+        "contacts"
+        "copypaste"
+      ;
+
+    @include onTablet {
+      grid-template-areas:
+        "nav nav nav contacts contacts contacts"
+        "socials socials socials contacts contacts contacts"
+        "copypaste copypaste copypaste copypaste copypaste copypaste"
+      ;
+    }
+
+    @include onDesktop {
+      grid-template-areas:
+        "nav nav nav nav nav nav nav contacts contacts contacts contacts contacts"
+        "copypaste copypaste copypaste copypaste copypaste copypaste copypaste socials socials socials socials socials"
+      ;
+    }
+  }
+
+  &__nav {
+    grid-area: nav;
+    margin-bottom: 20px;
+  }
+
+  &__socials {
+    grid-area: socials;
+    margin-bottom: 40px;
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 14px;
+    width: max-content;
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__facebook {
+    @include icon($footerIconSize, "../../img/icons/facebook.svg");
+  }
+
+  &__instagram {
+    @include icon($footerIconSize, "../../img/icons/Instagram.svg")
+  }
+
+  &__contacts {
+    grid-area: contacts;
+    display: grid;
+    row-gap: 10px;
+    height: max-content;
+
+    @include onTablet {
+      row-gap: 7px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 30px;
+      row-gap: 19px;
+    }
+  }
+
+  &__contact {
+    @include adaptive-value('font-size', 16, 14);
+    font-weight: 400;
+    line-height: 150%;
+    color: $cream;
+  }
+
+  &__copypaste {
+    grid-area: copypaste;
+    @include adaptive-value(font-size, 18, 14);
+    font-weight: 500;
+    @include adaptive-value(line-height, 27, 18);
+  }
+}

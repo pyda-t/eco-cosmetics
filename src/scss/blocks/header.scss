@@ -1,0 +1,123 @@
+.header {
+  &__content {
+    @include pageGrid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    align-items: center;
+    height: $headerHeight;
+
+    @include onTablet {
+      grid-auto-columns: auto;
+      height: $headerTabletHeight;
+    }
+
+    @include onDesktop {
+      height: $headerDesktopHeight;
+    }
+  }
+
+  &__burger {
+    position: relative;
+    width: 20px;
+    height: 1px;
+    z-index: 4;
+    background-color: $green;
+    transition-duration: $amin-time;
+
+    &::before,&::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: $green;
+      transition-duration: $amin-time;
+    }
+
+    &::before {
+      transform: translateY(-6px);
+    }
+
+    &::after {
+      transform: translateY(6px);
+    }
+
+    &--active {
+      background-color: $black;
+
+      &::before {
+        transform: translateY(0) rotate(45deg);
+        background-color: $cream;
+      }
+
+      &::after {
+        transform: translateY(0) rotate(-45deg);
+        background-color: $cream;
+      }
+    }
+
+    @include onTablet {
+      grid-column: 1;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__logo {
+    justify-self: center;
+    @include icon($headerIconSize, "../../img/icons/logo.svg");
+
+    @include onTablet {
+      grid-column: 3 / span 2;
+    }
+
+    @include onDesktop {
+      position: relative;
+      grid-column: 1 / span 6;
+      justify-self: flex-start;
+      @include square(50px);
+      background-image: url("../../img/icons/logo-large.svg");
+
+      &::after {
+        content: 'witch of mountain winds';
+        position: absolute;
+        top: 50%;
+        left: $headerDesktopIconSize + 12px;
+        transform: translateY(-50%);
+        width: max-content;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 130%;
+        letter-spacing: 0.7px;
+        text-transform: uppercase;
+        color: $green;
+      }
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      grid-column: 7 / span 5;
+    }
+  }
+
+  &__bag {
+    justify-self: flex-end;
+    @include icon($headerIconSize, "../../img/icons/bag.svg");
+
+    @include onTablet {
+      grid-column: 6;
+    }
+
+    @include onDesktop {
+      grid-column: 12;
+    }
+  }
+}

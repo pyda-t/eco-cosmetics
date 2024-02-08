@@ -1,0 +1,5 @@
+.container {
+  margin: 0 auto;
+  @include adaptive-value(padding-inline, 50, 20);
+  max-width: $maxWidthContainer + px;
+}

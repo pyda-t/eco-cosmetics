@@ -1,0 +1,50 @@
+.tabs {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+
+  @include onTablet {
+    max-width: 274px;
+  }
+
+  @include onDesktop {
+    max-width: 400px;
+  }
+
+  &__tab {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    color: $grey;
+    cursor: pointer;
+    transition-duration: $amin-time;
+
+    &--selected {
+      color: $black;
+    }
+
+    &:hover {
+      color: $black;
+    }
+
+    @include onDesktop {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 150%;
+      letter-spacing: 0.9px;
+    }
+  }
+
+  &__line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background-color: $black;
+    transform: translateX(0);
+    transition-duration: $amin-time;
+  }
+}

@@ -1,0 +1,24 @@
+.button {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  border: 2px solid $black;
+
+  &__text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    background-color: $black;
+    @extend %button-text;
+    color: $white;
+    transition-duration: $amin-time;
+  }
+
+  &:hover {
+    .button__text {
+      color: $black;
+      background-color: $cream;
+    }
+  }
+}

@@ -1,0 +1,65 @@
+.brand {
+  &__article {
+    @include onTablet {
+      grid-column: 1 / span 3;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / span 4;
+    }
+  }
+
+  &__title {
+    margin-bottom: 10px;
+
+    @include onDesktop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+
+    &:last-of-type {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  &__image {
+    display: none;
+
+    @include onTablet {
+      grid-column: 4 / span 3;
+      display: block;
+      height: 100%;
+      width: 100%;
+      background-image: url("../../img/candle.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / span 4;
+    }
+
+    &--small {
+      @include onTablet {
+        display: none;
+      }
+
+      @include onDesktop {
+        grid-column: 11 / span 2;
+        align-self: flex-end;
+        display: block;
+        height: 75%;
+        background-image: url("../../img/candle-small.jpg");
+      }
+    }
+  }
+}

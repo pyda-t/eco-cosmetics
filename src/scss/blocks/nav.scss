@@ -1,0 +1,35 @@
+.nav {
+  &__list {
+    display: grid;
+    row-gap: 11px;
+    width: min-content;
+
+    @include onTablet {
+      row-gap: 15px;
+    }
+
+    @include onDesktop {
+      grid-auto-flow: column;
+      column-gap: 40px;
+    }
+  }
+
+  &__link {
+    display: block;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    text-transform: capitalize;
+    color: $green;
+    transition-duration: $amin-time;
+
+    &--color-cream {
+      color: $cream;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

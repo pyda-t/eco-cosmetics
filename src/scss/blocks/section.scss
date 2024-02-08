@@ -1,0 +1,42 @@
+.section {
+  &__content {
+    @include pageGrid;
+
+    @include onDesktop {
+      position: relative;
+    }
+  }
+
+  &__name {
+    display: none;
+
+    @include onDesktop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: grid;
+      grid-auto-flow: column;
+      align-items: center;
+      column-gap: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 130%;
+      color: $green;
+      transform-origin: top left;
+      transform: rotate(-90deg) translateX(-100%);
+
+      &::before {
+        content: '';
+        display: block;
+        width: 100px;
+        height: 1px;
+        background-color: $green;
+      }
+    }
+  }
+
+  &__title {
+    @extend %h2;
+    color: $green;
+  }
+}

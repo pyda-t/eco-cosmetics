@@ -1,0 +1,106 @@
+.help {
+  &__content {
+    @include onTablet {
+      grid-column: 1 / span 3;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / span 4;
+    }
+  }
+
+  &__title {
+    margin-bottom: 10px;
+
+    @include onDesktop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 20px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__input {
+    margin-bottom: 25px;
+    width: 100%;
+    padding-bottom: 5px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $lightGrey;
+    font-family: Poppins, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 150%;
+    resize: none;
+    overflow: hidden;
+    outline: none;
+    transition-duration: $amin-time;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+
+    &::placeholder {
+      color: $grey;
+      text-transform: capitalize;
+    }
+
+    &:focus {
+      border-color: black;
+    }
+
+    &:nth-child(3) {
+      margin-bottom: 45px;
+
+      @include onDesktop {
+        margin-bottom: 60px;
+      }
+    }
+
+    &:nth-child(4) {
+      margin-bottom: 30px;
+
+      @include onDesktop {
+        margin-bottom: 50px;
+      }
+    }
+
+    &--success {
+      color: $green;
+      border-color: $green;
+    }
+
+    &--error {
+      color: $red;
+      border-color: $red;
+    }
+  }
+
+  &__image {
+    display: none;
+    
+    @include onTablet {
+      grid-column: 4 / span 3;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-image: url("../../img/bird-2.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: left;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / span 6;
+    }
+  }
+}

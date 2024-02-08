@@ -1,0 +1,63 @@
+@mixin onTablet {
+  @media (min-width: $minTabletWidth) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: $minDesktopWidth) {
+    @content;
+  }
+}
+
+@mixin pageGrid {
+  --columns: 1;
+
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include onTablet {
+    --columns: 6;
+    column-gap: 30px;
+  }
+
+  @include onDesktop {
+    --columns: 12;
+    column-gap: 20px;
+  }
+}
+
+@mixin square ($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin circle ($size) {
+  @include square($size);
+  @include border-radius(50%);
+}
+
+@mixin icon($size, $url) {
+  display: block;
+  @include square($size);
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition-duration: $amin-time;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+@mixin adaptive-value($property, $maxSize, $minSize) {
+  $difference: $maxSize - $minSize;
+
+  #{$property}: $maxSize + px;
+
+  @media (max-width: #{$maxWidthContainer + px}) {
+    #{$property}: calc(#{$minSize + px} + #{$difference} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
+  }
+}

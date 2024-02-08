@@ -1,0 +1,26 @@
+.learn-button {
+  position: relative;
+  display: block;
+  align-self: start;
+  padding-bottom: 10px;
+  @extend %uppercase-text;
+  color: $green;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    height: 1px;
+    width: 0;
+    background-color: $green;
+    transition-duration: $amin-time;
+  }
+
+  &:hover {
+    &::after {
+      width: 100%;
+    }
+  }
+}
